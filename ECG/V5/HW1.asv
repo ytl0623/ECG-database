@@ -1,0 +1,77 @@
+clear ;
+clc ;
+close all ;
+
+% plotATM('100m')
+
+%Detrend
+% t = 1:1800 ;
+% load('100m.mat') ;
+% half = val(t) ;
+% detrend = detrend(half) ;
+% 
+% hold on
+% plot(t, half, 'r') ;
+% plot(t, detrend, 'b') ;
+% 
+% legend('Original', 'Detrended', 'Location', 'northwest') ;
+% xlabel('Time (sec)') ;
+
+%Square
+% t = 1:1800 ;
+% load('100m.mat') ;
+% half = val(t) ;
+% square = half.^2 ;
+% 
+% hold on
+% plot(t, half, 'r') ;
+% plot(t, square, 'b') ;
+% 
+% legend('Original', 'Square', 'Location', 'northwest') ;
+% xlabel('Time (sec)') ;
+
+
+%FFT
+% t = 1:1800 ;
+% load('100m.mat') ;
+% half = val(t) ;
+% fft = real(fft(half)) ;
+% real_fft = real(fft) ;
+% 
+% hold on
+% plot(t, half, 'r') ;
+% plot(t, real_fft, 'b') ;
+% 
+% legend('Original', 'Fast Fourier transform', 'Location', 'northwest') ;
+% xlabel('Time (sec)') ;
+
+%Detrend+Thresold
+t = 1:1800 ;
+load('100m.mat') ;
+half = val(t) ;
+detrend = detrend(half) ;
+% plot(t, half, 'r') ;
+thresholdedSignal = detrend > 50;
+% plot(t, thresholdedSignal, 'r') ;
+
+count = 0 ;
+i = 1 ;
+found = false ;
+while i < numel(thresholdedSignal)
+    if found == false
+        if thresholdedSignal(i) < 50
+            if thresholdedSignal(i+1) > 50
+                found = true ;
+        else
+    else
+        
+    end
+    i = i + 1 ;        
+end
+
+
+
+
+
+
+
